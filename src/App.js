@@ -2,30 +2,27 @@ import React from "react";
 import "./App.css";
 import Member from "./pages/Member";
 import Paket from "./pages/Paket";
-import User from "./pages/User";
-import Navbar from "./components/Navbar";
-import FormTransaksi from "./pages/FormTransaksi";
-import Dashboard from "./pages/Dashboard";
-import Footer from "./components/Footer";
+import Users from "./pages/Users";
+import FormTransaksi from "./pages/FormTransaksi"
+import Transaksi from "./pages/Transaksi"
 import Login from "./pages/Login";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Transaksi from "./pages/Transaksi";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import Navbar from "./Navbar";
+import Dashboard from "./pages/Dashboard";
+import Footer from "./footer";
 
-export default function App() {
+export default function App(){
   return (
-    <Router>
-      <Navbar></Navbar>
-      <br />
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/auth" element={<Login />} />
-        <Route path="/member" element={<Member />} />
-        <Route path="/paket" element={<Paket />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/transaksi" element={<Transaksi />} />
-        <Route path="/form_transaksi" element={<FormTransaksi />} />
+        <Route path="/" element={<Navbar><Dashboard/><Footer/></Navbar>}/>
+        <Route path="/transaksi" element={<Navbar><Transaksi/><Footer/></Navbar>}/>
+        <Route path="/member" element={<Navbar><Member/><Footer/></Navbar>}/>
+        <Route path="/paket" element={<Navbar><Paket/><Footer/></Navbar>}/>
+        <Route path="/users" element={<Navbar><Users/><Footer/></Navbar>}/>
+        <Route path="/form-transaksi" element={<Navbar><FormTransaksi/><Footer/></Navbar>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
-      <Footer></Footer>
-    </Router>
+    </BrowserRouter>
   );
 }
