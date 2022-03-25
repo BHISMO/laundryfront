@@ -173,10 +173,14 @@ class Users extends React.Component {
             )
         } else {
             return (
-                <button className="mb-1 btn btn-danger"
-                    onClick={() => this.setState({ fillPassword: true })}>
-                    change password
-                </button>
+                <div>
+                    Password
+                    <br></br>
+                    <button className="mb-1 btn btn-warning text-dark"
+                        onClick={() => this.setState({ fillPassword: true })}>
+                        Change Password
+                    </button>
+                </div>
             )
         }
     }
@@ -185,9 +189,10 @@ class Users extends React.Component {
     render() {
         return (
             <div className="container">
+                <p></p>
                 <div className="card">
-                    <div className="card-header bg-warning">
-                        <h3 className="text-white text-center">List Users</h3>
+                    <div className="card-header bg-dark">
+                        <h3 className="text-warning text-center">List Users</h3>
                     </div>
                     <div className="card-body">
                         <ul className="list-group">
@@ -195,20 +200,20 @@ class Users extends React.Component {
                                 <li className="list-group-item">
                                     <div className="row">
                                         <div className="col-lg-4">
-                                            <small className="text-info">Nama</small>
+                                            <small className="text-white fw-bold badge bg-dark text-wrap">Nama</small>
                                             <br></br> <h6>{user.nama}</h6>
                                         </div>
                                         <div className="col-lg-4">
-                                            <small className="text-info">Username</small>
+                                            <small className="text-white fw-bold badge bg-dark text-wrap">Username</small>
                                             <br></br> <h6>{user.username}</h6>
                                         </div>
                                         <div className="col-lg-2">
-                                            <small className="text-info">Role</small>
+                                            <small className="text-white fw-bold badge bg-dark text-wrap">Role</small>
                                             <br></br> <h6>{user.role}</h6>
                                         </div>
                                         <div className="col-lg-2 justify-content-center align-self-center">
                                             <div>
-                                                <button className={`btn btn-sm btn-warning mx-2 ${this.state.visible ? `` : `d-none`}`}
+                                                <button className={`btn btn-sm btn-dark text-warning mx-2 ${this.state.visible ? `` : `d-none`}`}
                                                     onClick={() => this.ubahData(user.id_user)}>
                                                     Edit
                                                 </button>
@@ -222,18 +227,25 @@ class Users extends React.Component {
                                 </li>
                             ))}
                         </ul>
-                        <button className={`btn btn-sm btn-info my-3 text-white ${this.state.visible ? `` : `d-none`}`} onClick={() => this.tambahData()}>
+                        <button className={`btn btn-sm btn-dark my-3 text-warning ${this.state.visible ? `` : `d-none`}`} onClick={() => this.tambahData()}>
                             Tambah data User
                         </button>
                     </div>
                 </div>
 
+                <br></br>
+                <p></p>
+                <br></br>
+                <p></p>
+                <br></br>
+                <p></p>
+
                 {/* form modal data paket */}
                 <div className="modal" id="modal_users">
                     <div className="modal-dialog modal-md">
                         <div className="modal-content">
-                            <div className="modal-header bg-info">
-                                <h4 className="text-white">Form data User</h4>
+                            <div className="modal-header bg-dark">
+                                <h4 className="text-warning">Form data User</h4>
                             </div>
                             <div className="modal-body">
                                 <form onSubmit={(ev) => this.simpanData(ev)}>
@@ -243,19 +255,18 @@ class Users extends React.Component {
                                     username
                                     <input type="text" className="form-control mb-2" value={this.state.username}
                                         onChange={(ev) => this.setState({ username: ev.target.value })}></input>
-                                        Password <div></div>
                                     {this.showPassword()}
                                     <div></div>
                                     role
                                     <select
-                                    className="form-control mb-2" value={this.state.role} onChange={(ev) =>
-                                    this.setState({ role: ev.target.value })
-                                    }>
-                                    <option value="admin">admin</option>
-                                    <option value="kasir">kasir</option>
-                                    <option value="member">member</option>
+                                        className="form-control mb-2" value={this.state.role} onChange={(ev) =>
+                                            this.setState({ role: ev.target.value })
+                                        }>
+                                        <option value="admin">admin</option>
+                                        <option value="kasir">kasir</option>
+                                        <option value="member">member</option>
                                     </select>
-                                    <button className="btn btn-success" type="submit">
+                                    <button className="btn btn-dark text-warning" type="submit">
                                         Simpan
                                     </button>
                                 </form>

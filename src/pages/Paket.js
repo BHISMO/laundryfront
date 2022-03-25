@@ -150,9 +150,10 @@ class Paket extends React.Component {
   render() {
     return (
       <div className="container">
+        <p></p>
         <div className="card">
-          <div className="card-header bg-info">
-            <h3 className="text-white text-center">List Paket</h3>
+          <div className="card-header bg-dark">
+            <h3 className="text-warning text-center">List Paket</h3>
           </div>
           <div className="card-body">
             <ul className="list-group">
@@ -160,19 +161,19 @@ class Paket extends React.Component {
                 <li className="list-group-item">
                   <div className="row">
                     <div className="col-lg-5">
-                      <small className="text-info">Jenis Paket</small>
+                      <small className="text-white fw-bold badge bg-dark text-wrap">Jenis Paket</small>
                       <br></br>
                       <h6>{paket.jenis_paket}</h6>
                     </div>
                     <div className="col-lg-5">
-                      <small className="text-info">Harga</small>
+                      <small className="text-white fw-bold badge bg-dark text-wrap">Harga</small>
                       <br></br>
                       <h6>Rp {paket.harga}</h6>
                     </div>
                     <div className="col-lg-2 justify-content-center align-self-center">
                       <div>
                         <button
-                          className={`btn btn-sm btn-warning mx-2 ${this.state.visible ? `` : `d-none`}`}
+                          className={`btn btn-sm btn-dark text-warning mx-2 ${this.state.visible ? `` : `d-none`}`}
                           onClick={() => this.ubahData(paket.id_paket)}
                         >
                           Edit
@@ -190,7 +191,7 @@ class Paket extends React.Component {
               ))}
             </ul>
             <button
-              className={`btn btn-sm btn-info my-3 text-white ${this.state.visible ? `` : `d-none`}`}
+              className={`btn btn-sm btn-dark my-3 text-warning ${this.state.visible ? `` : `d-none`}`}
               onClick={() => this.tambahData()}
             >
               Tambah data Paket
@@ -202,8 +203,8 @@ class Paket extends React.Component {
         <div className="modal" id="modal_paket">
           <div className="modal-dialog modal-md">
             <div className="modal-content">
-              <div className="modal-header bg-info">
-                <h4 className="text-white">Form data Paket</h4>
+              <div className="modal-header bg-dark">
+                <h4 className="text-warning">Form data Paket</h4>
               </div>
               <div className="modal-body">
                 <form onSubmit={(ev) => this.simpanData(ev)}>
@@ -223,7 +224,7 @@ class Paket extends React.Component {
                     value={this.state.harga}
                     onChange={(ev) => this.setState({ harga: ev.target.value })}
                   ></input>
-                  <button className="btn btn-success" type="submit">
+                  <button className="btn btn-dark text-warning" type="submit">
                     Simpan
                   </button>
                 </form>

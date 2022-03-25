@@ -12,8 +12,8 @@ export default function Navbar(props) {
       
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a href="#" className="navbar-brand text-danger">
-            Ligma Laundry
+          <a href="#" className="navbar-brand text-warning fw-bold">
+          linderie
           </a>
 
           {/* button toogler */}

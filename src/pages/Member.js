@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal } from "bootstrap";
 import axios from "axios";
-import {  authorization} from "../config";
+import { authorization } from "../config";
 
 class Member extends React.Component {
   constructor() {
@@ -39,7 +39,7 @@ class Member extends React.Component {
         },
       ],
     };
-    if(!localStorage.getItem("token")){
+    if (!localStorage.getItem("token")) {
       window.location.href = "/login"
     }
   }
@@ -77,7 +77,7 @@ class Member extends React.Component {
       // this.setState({members: temp})
 
       axios
-        .post(endpoint, data,authorization)
+        .post(endpoint, data, authorization)
         .then((response) => {
           window.alert(response.data.message);
           this.getData();
@@ -106,7 +106,7 @@ class Member extends React.Component {
       };
 
       axios
-        .put(endpoint, data,authorization)
+        .put(endpoint, data, authorization)
         .then((response) => {
           window.alert(response.data.message);
           this.getData();
@@ -146,7 +146,7 @@ class Member extends React.Component {
       let endpoint = "http://localhost:8000/member/" + id_member;
 
       axios
-        .delete(endpoint ,authorization)
+        .delete(endpoint, authorization)
         .then((response) => {
           window.alert(response.data.message);
           this.getData();
@@ -171,38 +171,39 @@ class Member extends React.Component {
     let user = JSON.parse(localStorage.getItem("user"))
     //cara pertama
     this.setState({
-      role : user.role
+      role: user.role
     })
     //cara kedua
-    if(user.role === 'admin' || user.role === 'kasir'){
+    if (user.role === 'admin' || user.role === 'kasir') {
       this.setState({
-        visible:true
+        visible: true
       })
-    }else{
+    } else {
       this.setState({
-        visible:false
+        visible: false
       })
     }
   }
 
-  showAddButton(){
-    if(this.state.role === 'admin' || this.state.role === 'kasir'){
-      return(
+  showAddButton() {
+    if (this.state.role === 'admin' || this.state.role === 'kasir') {
+      return (
         <button
-              className="btn btn-sm btn-success my-3"
-              onClick={() => this.tambahData()}
-            >
-              Tambah data Member
-            </button>
+          className="btn btn-sm btn-dark my-3 text-warning"
+          onClick={() => this.tambahData()}
+        >
+          Tambah Member
+        </button>
       )
     }
   }
   render() {
     return (
       <div className="container">
+        <p></p>
         <div className="card">
-          <div className="card-header bg-success">
-            <h3 className="text-white">List Member Laundry</h3>
+          <div className="card-header bg-dark">
+            <h3 className="text-warning text-center">List Member Laundry</h3>
           </div>
           <div className="card-body">
             <ul className="list-group">
@@ -210,25 +211,25 @@ class Member extends React.Component {
                 <li className="list-group-item">
                   <div className="row">
                     <div className="col-lg-2">
-                      <small className="text-info">NAMA</small>
+                      <small className="text-white fw-bold badge bg-dark text-wrap">NAMA</small>
                       <br></br> <h6>{member.nama}</h6>
                     </div>
                     <div className="col-lg-2">
-                      <small className="text-info">JENIS KELAMIN</small>
+                      <small className="text-white fw-bold badge bg-dark text-wrap">JENIS KELAMIN</small>
                       <br></br> <h6>{member.jenis_kelamin}</h6>
                     </div>
                     <div className="col-lg-2">
-                      <small className="text-info">TELEPON</small>
+                      <small className="text-white fw-bold badge bg-dark text-wrap">TELEPON</small>
                       <br></br> <h6>{member.telepon}</h6>
                     </div>
                     <div className="col-lg-4">
-                      <small className="text-info">ALAMAT</small>
+                      <small className="text-white fw-bold badge bg-dark text-wrap">ALAMAT</small>
                       <br></br> <h6>{member.alamat}</h6>
                     </div>
                     <div className="col-lg-2">
                       <div>
                         <button
-                          className= {`btn btn-sm btn-warning mx-2 ${this.state.visible ? `` : `d-none`}`}
+                          className={`btn btn-sm btn-dark text-warning mx-2 ${this.state.visible ? `` : `d-none`}`}
                           onClick={() => this.ubahData(member.id_member)}
                         >
                           Edit
@@ -249,12 +250,26 @@ class Member extends React.Component {
           </div>
         </div>
 
+        <br></br>
+        <p></p>
+        <br></br>
+        <p></p>
+        <br></br>
+        <p></p>
+        <br></br>
+        <p></p>
+        <br></br>
+        <p></p>
+        <br></br>
+        <p></p>
+        <br></br>
+
         {/* form modal data member */}
         <div className="modal" id="modal_member">
           <div className="modal-dialog modal-md">
             <div className="modal-content">
-              <div className="modal-header bg-success">
-                <h4 className="text-white">Form data member</h4>
+              <div className="modal-header bg-dark">
+                <h4 className="text-warning">Form data member</h4>
               </div>
               <div className="modal-body">
                 <form onSubmit={(ev) => this.simpanData(ev)}>
@@ -294,7 +309,7 @@ class Member extends React.Component {
                       this.setState({ alamat: ev.target.value })
                     }
                   ></input>
-                  <button className="btn btn-success" type="submit">
+                  <button className="btn btn-dark text-warning" type="submit">
                     Simpan
                   </button>
                 </form>
